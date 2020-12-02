@@ -10,13 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Maneraa',
-        debugShowCheckedModeBanner: false,
-        theme:
-            ThemeData(splashColor: Colors.transparent, fontFamily: 'Poppins'),
-        routes: {
-          SplashScreen.myRoute: (BuildContext context) => SplashScreen(),
-          Home.myRoute: (BuildContext context) => Home(),
-        });
+      title: 'Maneraa',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(splashColor: Colors.transparent, fontFamily: 'Poppins'),
+      routes: {
+        SplashScreen.myRoute: (BuildContext context) => SplashScreen(),
+        Home.myRoute: (BuildContext context) => Home(),
+      },
+    );
   }
 }
