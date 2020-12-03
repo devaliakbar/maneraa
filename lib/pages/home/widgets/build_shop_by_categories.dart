@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/utils/is_double_contain_decimal.dart';
 import 'package:maneraa/widgets/loading_widget.dart';
 
 class BuildShopByCategories extends StatelessWidget {
-  final List categories;
+  final List<HomeShopByCategory> categories;
 
   BuildShopByCategories(this.categories);
 
@@ -36,7 +37,7 @@ class BuildShopByCategories extends StatelessWidget {
               margin: EdgeInsets.only(right: margin, bottom: margin),
               child: CachedNetworkImage(
                 fit: BoxFit.fitHeight,
-                imageUrl: categories[index],
+                imageUrl: categories[index].image,
                 placeholder: (context, url) => showLoading(),
                 errorWidget: (context, url, error) => Icon(
                   Icons.error_outline,

@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/widgets/loading_widget.dart';
 
 class BuildCategories extends StatelessWidget {
-  final List categories;
+  final List<HomeCategory> categories;
 
   BuildCategories(this.categories);
 
@@ -27,7 +28,7 @@ class BuildCategories extends StatelessWidget {
       child: Container(
         width: 90,
         child: CachedNetworkImage(
-          imageUrl: categories[index],
+          imageUrl: categories[index].image,
           placeholder: (context, url) => showLoading(),
           errorWidget: (context, url, error) => Icon(
             Icons.error_outline,

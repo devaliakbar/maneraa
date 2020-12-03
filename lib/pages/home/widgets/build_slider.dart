@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/widgets/loading_widget.dart';
 
 class BuildSlider extends StatefulWidget {
-  final List banners;
+  final List<HomeBanner> banners;
 
   BuildSlider(this.banners);
 
@@ -51,7 +52,7 @@ class _BuildSliderState extends State<BuildSlider> {
         return Builder(
           builder: (BuildContext context) {
             return CachedNetworkImage(
-              imageUrl: banner,
+              imageUrl: banner.image,
               placeholder: (context, url) => showLoading(),
               errorWidget: (context, url, error) => Icon(
                 Icons.error_outline,
@@ -69,7 +70,6 @@ class _BuildSliderState extends State<BuildSlider> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: widget.banners.map((banner) {
         int index = widget.banners.indexOf(banner);
-
         return Container(
           width: 30.0,
           height: 5.0,

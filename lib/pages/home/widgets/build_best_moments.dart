@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:maneraa/pages/home/widgets/slider_without_indicator.dart';
+import 'package:maneraa/widgets/loading_widget.dart';
 
 class BuildBestMoments extends StatelessWidget {
   final List bestMoments;
@@ -8,6 +11,29 @@ class BuildBestMoments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliderWithoutIndicator(bestMoments);
+    return CarouselSlider(
+      options: CarouselOptions(
+        viewportFraction: 1.0,
+        aspectRatio: 1,
+        enableInfiniteScroll: true,
+        autoPlayAnimationDuration: Duration(milliseconds: 800),
+        autoPlay: true,
+        autoPlayCurve: Curves.fastOutSlowIn,
+      ),
+      items: bestMoments.map((bestMoment) {
+        return Builder(
+          builder: (BuildContext context) {
+            return CachedNetworkImage(
+              imageUrl: bestMoment,
+              placeholder: (context, url) => showLoading(),
+              errorWidget: (context, url, error) => Icon(
+                Icons.error_outline,
+                color: Colors.black,
+              ),
+            );
+          },
+        );
+      }).toList(),
+    );
   }
 }
