@@ -11,6 +11,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   static const webAppUrl = 'https://maneraa.com/';
+  static const basicApiUrl = webAppUrl + "api/v1/";
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

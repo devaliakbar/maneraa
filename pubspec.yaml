@@ -32,6 +32,7 @@ dependencies:
   flutter_statusbarcolor: ^0.2.3
   carousel_slider: ^2.3.1
   cached_network_image: ^2.4.1
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +53,7 @@ flutter:
     - assets/images/belllab_logo.png
     - assets/images/maneraa_logo.png
     - assets/images/loading.gif
+    - assets/images/loading_page.gif
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

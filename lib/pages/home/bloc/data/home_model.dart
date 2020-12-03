@@ -6,9 +6,10 @@ class HomeData {
   final List<HomeBestSelling> bestSellings;
   final List<HomeShopByCategory> shopByCategories;
   final List<HomePoster> posters;
+  final List<HomeBestMoments> bestMoments;
 
   HomeData(this.banners, this.categories, this.bestSellings,
-      this.shopByCategories, this.posters);
+      this.shopByCategories, this.posters, this.bestMoments);
 
   factory HomeData.fromJson(Map<String, dynamic> json) {
     List<HomeBanner> bannersList = new List<HomeBanner>();
@@ -17,7 +18,7 @@ class HomeData {
     });
 
     List<HomeCategory> categoryList = new List<HomeCategory>();
-    json['categories'].forEach((v) {
+    json['categories_circle'].forEach((v) {
       categoryList.add(new HomeCategory.fromJson(v));
     });
 
@@ -37,8 +38,13 @@ class HomeData {
       posterList.add(new HomePoster.fromJson(v));
     });
 
+    List<HomeBestMoments> bestMomentList = new List<HomeBestMoments>();
+    json['best_moments'].forEach((v) {
+      bestMomentList.add(new HomeBestMoments.fromJson(v));
+    });
+
     return HomeData(bannersList, categoryList, bestSellingsList,
-        shopByCategoryList, posterList);
+        shopByCategoryList, posterList, bestMomentList);
   }
 }
 
@@ -61,8 +67,9 @@ class HomeCategory {
   HomeCategory(this.image, this.url);
 
   factory HomeCategory.fromJson(Map<String, dynamic> json) {
+    //TODO
     return HomeCategory(
-        MyApp.webAppUrl + "public/" + json['photo'], json['url']);
+        MyApp.webAppUrl + "public/" + json['icon'], json['name']);
   }
 }
 
@@ -98,5 +105,17 @@ class HomePoster {
 
   factory HomePoster.fromJson(Map<String, dynamic> json) {
     return HomePoster(MyApp.webAppUrl + "public/" + json['photo'], json['url']);
+  }
+}
+
+class HomeBestMoments {
+  final String image;
+  final String url;
+
+  HomeBestMoments(this.image, this.url);
+
+  factory HomeBestMoments.fromJson(Map<String, dynamic> json) {
+    return HomeBestMoments(
+        MyApp.webAppUrl + "public/" + json['photo'], json['url']);
   }
 }

@@ -12,7 +12,7 @@ import 'package:maneraa/pages/home/widgets/build_slider.dart';
 import 'package:maneraa/pages/home/widgets/home_title.dart';
 import 'package:maneraa/utils/app_theme.dart';
 import 'package:maneraa/utils/statusbar_color.dart';
-import 'package:maneraa/widgets/loading_widget.dart';
+import 'package:maneraa/widgets/loading_page.dart';
 import 'package:maneraa/widgets/normal_text.dart';
 
 class Home extends StatelessWidget with WidgetsBindingObserver {
@@ -63,7 +63,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
           child: Padding(
             padding: EdgeInsets.all(15),
             child: Center(
-              child: showLoading(),
+              child: showPageLoading(),
             ),
           ),
         )
@@ -134,11 +134,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
                 height: 15,
               ),
               BuildBestMoments(
-                [
-                  "https://maneraa.com/public/uploads/banners/oEllOJKMOBzZZZurK3YMTbvGKnPGtUdszJhIVxXs.jpeg",
-                  "https://maneraa.com/public/uploads/banners/u84Ad7FkoEQj7gXiL2JPz0NerG8SzlJ5aBfMzQIw.jpeg",
-                  "https://maneraa.com/public/uploads/banners/ri0ihy2UEjXCWX09nZRsePzKYuZGNktoJEWR8kWJ.jpeg",
-                ],
+                homeData.bestMoments,
               ),
               SizedBox(
                 height: 15,
