@@ -50,7 +50,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/belllab_logo.png
+    - assets/images/maneraa_main_logo.png
     - assets/images/maneraa_logo.png
     - assets/images/loading.gif
     - assets/images/loading_page.gif
