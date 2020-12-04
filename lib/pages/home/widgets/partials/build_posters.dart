@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
-import 'package:maneraa/widgets/custom_loading.dart';
+import 'package:maneraa/widgets/image_from_network.dart';
 
 class BuildPosters extends StatelessWidget {
   final List<HomePoster> posters;
@@ -18,14 +17,7 @@ class BuildPosters extends StatelessWidget {
   Widget _buildPoster(HomePoster poster) {
     return Container(
       margin: EdgeInsets.only(bottom: 15),
-      child: CachedNetworkImage(
-        imageUrl: poster.image,
-        placeholder: (context, url) => CustomLoading.showLoading(),
-        errorWidget: (context, url, error) => Icon(
-          Icons.error_outline,
-          color: Colors.black,
-        ),
-      ),
+      child: ImageFromNetwork(poster.image),
     );
   }
 }

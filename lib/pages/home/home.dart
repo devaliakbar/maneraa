@@ -26,6 +26,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
 
     StatusBarColor.setUpStatusbarColor(
         backgroundColor: AppTheme.secondaryGreyColor, whiteColor: false);
+
     WidgetsBinding.instance.addObserver(this);
 
     return Scaffold(

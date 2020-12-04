@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
-import 'package:maneraa/widgets/custom_loading.dart';
+import 'package:maneraa/widgets/image_from_network.dart';
 
 class BuildBestSeller extends StatelessWidget {
   final List<HomeBestSelling> bestSellers;
@@ -24,14 +23,7 @@ class BuildBestSeller extends StatelessWidget {
         (bestSelling) {
           return Builder(
             builder: (BuildContext context) {
-              return CachedNetworkImage(
-                imageUrl: bestSelling.image,
-                placeholder: (context, url) => CustomLoading.showLoading(),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error_outline,
-                  color: Colors.black,
-                ),
-              );
+              return ImageFromNetwork(bestSelling.image);
             },
           );
         },

@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/utils/utils.dart';
-import 'package:maneraa/widgets/custom_loading.dart';
+import 'package:maneraa/widgets/image_from_network.dart';
 
 class BuildShopByCategories extends StatelessWidget {
   final List<HomeShopByCategory> categories;
@@ -35,15 +34,7 @@ class BuildShopByCategories extends StatelessWidget {
           (index) {
             return Container(
               margin: EdgeInsets.only(right: margin, bottom: margin),
-              child: CachedNetworkImage(
-                fit: BoxFit.fitHeight,
-                imageUrl: categories[index].image,
-                placeholder: (context, url) => CustomLoading.showLoading(),
-                errorWidget: (context, url, error) => Icon(
-                  Icons.error_outline,
-                  color: Colors.black,
-                ),
-              ),
+              child: ImageFromNetwork(categories[index].image),
             );
           },
         ),
