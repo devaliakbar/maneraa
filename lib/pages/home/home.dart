@@ -24,9 +24,6 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     BlocProvider.of<HomeBloc>(context).add(HomeLoadEvent());
 
-    StatusBarColor.setUpStatusbarColor(
-        backgroundColor: AppTheme.secondaryGreyColor, whiteColor: false);
-
     WidgetsBinding.instance.addObserver(this);
 
     return Scaffold(
@@ -41,6 +38,10 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
             print("Home State Changed");
           },
           builder: (context, state) {
+            StatusBarColor.setUpStatusbarColor(
+                backgroundColor: AppTheme.secondaryGreyColor,
+                whiteColor: false);
+
             if (state is HomeLoadFailed) {
               return HomeError(state.errorMsg);
             } else if (state is HomeLoadedState) {
