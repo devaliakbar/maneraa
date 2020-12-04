@@ -5,6 +5,7 @@ class AppTheme {
   static const double mediumScreenSize = 684;
   static double screenHeight = 0;
 
+  static double iconSizeS = screenHeight > mediumScreenSize ? 23.0 : 20.0;
   static double iconSizeM = screenHeight > mediumScreenSize ? 26.0 : 23.0;
 
   static double fontSizeS = screenHeight > mediumScreenSize ? 12.0 : 9.0;
