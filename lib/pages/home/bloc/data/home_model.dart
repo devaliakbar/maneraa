@@ -67,7 +67,6 @@ class HomeCategory {
   HomeCategory(this.image, this.url);
 
   factory HomeCategory.fromJson(Map<String, dynamic> json) {
-    //TODO
     return HomeCategory(
         MyApp.webAppUrl + "public/" + json['icon'], json['name']);
   }
