@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/home/home.dart';
-import 'package:maneraa/utils/app_theme.dart';
+import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/utils/hexcolor.dart';
 import 'dart:async';
 

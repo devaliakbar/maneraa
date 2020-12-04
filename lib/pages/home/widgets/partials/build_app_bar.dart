@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maneraa/utils/app_theme.dart';
+import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/cart_icon.dart';
 
 class BuildAppBar extends StatelessWidget implements PreferredSizeWidget {

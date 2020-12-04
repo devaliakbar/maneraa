@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maneraa/utils/app_theme.dart';
+import 'package:maneraa/services/settings/app_theme.dart';
 
 class NormalText extends StatelessWidget {
   final String text;

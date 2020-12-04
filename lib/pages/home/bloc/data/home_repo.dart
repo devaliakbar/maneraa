@@ -1,6 +1,6 @@
 import 'package:maneraa/main.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
-import 'package:maneraa/utils/network/make_http_request.dart';
+import 'package:maneraa/services/network/make_http_request.dart';
 
 class HomeRepo {
   Future<HomeData> getHomeData() async {

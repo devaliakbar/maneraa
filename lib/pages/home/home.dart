@@ -6,8 +6,8 @@ import 'package:maneraa/pages/home/widgets/partials/build_app_bar.dart';
 import 'package:maneraa/pages/home/widgets/views/home_body.dart';
 import 'package:maneraa/pages/home/widgets/views/home_error.dart';
 import 'package:maneraa/pages/home/widgets/views/home_loading.dart';
-import 'package:maneraa/utils/app_theme.dart';
-import 'package:maneraa/utils/utils.dart';
+import 'package:maneraa/services/settings/status_bar_color.dart';
+import 'package:maneraa/services/settings/app_theme.dart';
 
 class Home extends StatelessWidget with WidgetsBindingObserver {
   static const String myRoute = '/home';
@@ -15,7 +15,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      Utils.setUpStatusbarColor(
+      StatusBarColor.setUpStatusbarColor(
           backgroundColor: AppTheme.secondaryGreyColor, whiteColor: false);
     }
   }
@@ -24,7 +24,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     BlocProvider.of<HomeBloc>(context).add(HomeLoadEvent());
 
-    Utils.setUpStatusbarColor(
+    StatusBarColor.setUpStatusbarColor(
         backgroundColor: AppTheme.secondaryGreyColor, whiteColor: false);
     WidgetsBinding.instance.addObserver(this);
 
