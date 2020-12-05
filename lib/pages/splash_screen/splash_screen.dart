@@ -5,7 +5,6 @@ import 'package:maneraa/utils/hexcolor.dart';
 import 'dart:async';
 
 class SplashScreen extends StatelessWidget {
-  static const String myRoute = '/';
   @override
   Widget build(BuildContext context) {
     AppTheme.screenHeight = MediaQuery.of(context).size.height;

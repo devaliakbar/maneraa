@@ -7,6 +7,7 @@ import 'package:maneraa/pages/home/bloc/data/home_repo.dart';
 import 'package:maneraa/pages/home/bloc/home_bloc.dart';
 import 'package:maneraa/pages/home/home.dart';
 import 'package:maneraa/pages/splash_screen/splash_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,13 +33,31 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Maneraa',
-        debugShowCheckedModeBanner: false,
         theme:
             ThemeData(splashColor: Colors.transparent, fontFamily: 'Poppins'),
-        routes: {
-          SplashScreen.myRoute: (BuildContext context) => SplashScreen(),
-          Home.myRoute: (BuildContext context) => Home(),
-          Categories.myRoute: (BuildContext context) => Categories(),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case Home.myRoute:
+              return PageTransition(
+                child: Home(),
+                type: PageTransitionType.rightToLeft,
+                settings: settings,
+              );
+              break;
+
+            case Categories.myRoute:
+              return PageTransition(
+                child: Categories(),
+                type: PageTransitionType.rightToLeft,
+                settings: settings,
+              );
+              break;
+
+            default:
+              return null;
+          }
         },
       ),
     );
