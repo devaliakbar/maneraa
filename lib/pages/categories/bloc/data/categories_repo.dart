@@ -1,11 +1,11 @@
 import 'package:maneraa/main.dart';
-import 'package:maneraa/pages/home/bloc/data/home_model.dart';
+import 'package:maneraa/pages/categories/bloc/data/categories_model.dart';
 import 'package:maneraa/services/network/make_http_request.dart';
 
-class HomeRepo {
-  Future<HomeModel> getHomeData() async {
+class CategoriesRepo {
+  Future<CategoriesModel> getCategories() async {
     var response = await MakeHttpRequest.makeHttpRequest(
-        path: MyApp.basicApiUrl + "banners/homedata");
+        path: MyApp.basicApiUrl + "categories");
 
     if (response == null) {
       throw MakeHttpRequest.ERROR_MSG;
@@ -15,6 +15,6 @@ class HomeRepo {
       throw response['errorMsg'];
     }
 
-    return HomeModel.fromJson(response['data']);
+    return CategoriesModel.fromJson(response);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:maneraa/pages/categories/categories.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/normal_text.dart';
 
@@ -56,17 +57,15 @@ class BuildDrawer extends StatelessWidget {
                           ),
                           ListTile(
                             title: NormalText(
-                              "Category",
+                              "Categories",
                               color: Colors.black,
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_drop_down_outlined,
-                              size: AppTheme.iconSizeS,
                             ),
                             leading: Icon(
                               Icons.category_outlined,
                               size: AppTheme.iconSizeS,
                             ),
+                            onTap: () => Navigator.pushNamed(
+                                context, Categories.myRoute),
                           ),
                           ListTile(
                             title: NormalText(

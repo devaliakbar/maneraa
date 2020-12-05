@@ -1,6 +1,6 @@
 import 'package:maneraa/main.dart';
 
-class HomeData {
+class HomeModel {
   final List<HomeBanner> banners;
   final List<HomeCategory> categories;
   final List<HomeBestSelling> bestSellings;
@@ -8,10 +8,10 @@ class HomeData {
   final List<HomePoster> posters;
   final List<HomeBestMoments> bestMoments;
 
-  HomeData(this.banners, this.categories, this.bestSellings,
+  HomeModel(this.banners, this.categories, this.bestSellings,
       this.shopByCategories, this.posters, this.bestMoments);
 
-  factory HomeData.fromJson(Map<String, dynamic> json) {
+  factory HomeModel.fromJson(Map<String, dynamic> json) {
     List<HomeBanner> bannersList = new List<HomeBanner>();
     json['banner'].forEach((v) {
       bannersList.add(new HomeBanner.fromJson(v));
@@ -43,7 +43,7 @@ class HomeData {
       bestMomentList.add(new HomeBestMoments.fromJson(v));
     });
 
-    return HomeData(bannersList, categoryList, bestSellingsList,
+    return HomeModel(bannersList, categoryList, bestSellingsList,
         shopByCategoryList, posterList, bestMomentList);
   }
 }

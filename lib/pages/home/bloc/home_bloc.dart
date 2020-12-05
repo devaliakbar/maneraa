@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/pages/home/bloc/data/home_repo.dart';
 
@@ -9,9 +10,9 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final HomeRepo homeRepo;
+  final HomeRepo _homeRepo;
 
-  HomeBloc(this.homeRepo) : super(HomeLoadingState());
+  HomeBloc(this._homeRepo) : super(HomeLoadingState());
 
   @override
   Stream<HomeState> mapEventToState(
@@ -21,10 +22,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       yield HomeLoadingState();
 
       try {
-        HomeData homeData = await homeRepo.getHomeData();
+        HomeModel homeData = await _homeRepo.getHomeData();
         yield HomeLoadedState(homeData: homeData);
       } catch (e) {
-        yield HomeLoadFailed(errorMsg: e.toString());
+        yield HomeLoadFailedState(errorMsg: e.toString());
       }
     }
   }

@@ -9,7 +9,7 @@ import 'package:maneraa/pages/home/widgets/partials/build_slider.dart';
 import 'package:maneraa/pages/home/widgets/partials/home_title.dart';
 
 class HomeBody extends StatelessWidget {
-  final HomeData homeData;
+  final HomeModel homeData;
   HomeBody(this.homeData);
   @override
   Widget build(BuildContext context) {

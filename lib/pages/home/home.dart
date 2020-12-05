@@ -29,7 +29,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: BuildDrawer(),
-      appBar: BuildAppBar(
+      appBar: BuildHomeAppBar(
         appBar: AppBar(),
       ),
       body: SafeArea(
@@ -42,7 +42,7 @@ class Home extends StatelessWidget with WidgetsBindingObserver {
                 backgroundColor: AppTheme.secondaryGreyColor,
                 whiteColor: false);
 
-            if (state is HomeLoadFailed) {
+            if (state is HomeLoadFailedState) {
               return HomeError(state.errorMsg);
             } else if (state is HomeLoadedState) {
               return HomeBody(state.homeData);

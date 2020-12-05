@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/cart_icon.dart';
+import 'package:maneraa/widgets/normal_text.dart';
 
-class BuildHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+class BuildCategoriesAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   final AppBar appBar;
-  BuildHomeAppBar({this.appBar});
+  BuildCategoriesAppBar({@required this.appBar});
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
       iconTheme: IconThemeData(color: AppTheme.primaryGreyColor),
-      title: Image.asset(
-        "assets/images/maneraa_logo.png",
-        fit: BoxFit.scaleDown,
-      ),
+      centerTitle: false,
+      titleSpacing: 0.0,
+      title: NormalText("Categories"),
       actions: [
-        IconButton(
-          icon: Icon(
-            Icons.search,
-            color: AppTheme.primaryGreyColor,
-            size: AppTheme.iconSizeM,
-          ),
-          onPressed: () {},
-        ),
         CartIcon(
           cartCount: 0,
         )

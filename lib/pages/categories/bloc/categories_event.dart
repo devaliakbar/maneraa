@@ -6,3 +6,5 @@ abstract class CategoriesEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class CategoriesLoadEvent extends CategoriesEvent {}
