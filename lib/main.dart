@@ -6,6 +6,9 @@ import 'package:maneraa/pages/categories/categories/categories.dart';
 import 'package:maneraa/pages/categories/sub_categories/bloc/categories_bloc.dart';
 import 'package:maneraa/pages/categories/sub_categories/bloc/data/categories_repo.dart';
 import 'package:maneraa/pages/categories/sub_categories/categories.dart';
+import 'package:maneraa/pages/categories/sub_sub_categories/bloc/categories_bloc.dart';
+import 'package:maneraa/pages/categories/sub_sub_categories/bloc/data/categories_repo.dart';
+import 'package:maneraa/pages/categories/sub_sub_categories/categories.dart';
 import 'package:maneraa/pages/home/bloc/data/home_repo.dart';
 import 'package:maneraa/pages/home/bloc/home_bloc.dart';
 import 'package:maneraa/pages/home/home.dart';
@@ -38,6 +41,11 @@ class MyApp extends StatelessWidget {
             return SubCategoriesBloc(SubCategoriesRepo());
           },
         ),
+        BlocProvider(
+          create: (BuildContext context) {
+            return SubSubCategoriesBloc(SubSubCategoriesRepo());
+          },
+        ),
       ],
       child: MaterialApp(
         title: 'Maneraa',
@@ -66,6 +74,14 @@ class MyApp extends StatelessWidget {
             case SubCategories.myRoute:
               return PageTransition(
                 child: SubCategories(),
+                type: PageTransitionType.rightToLeft,
+                settings: settings,
+              );
+              break;
+
+            case SubSubCategories.myRoute:
+              return PageTransition(
+                child: SubSubCategories(),
                 type: PageTransitionType.rightToLeft,
                 settings: settings,
               );

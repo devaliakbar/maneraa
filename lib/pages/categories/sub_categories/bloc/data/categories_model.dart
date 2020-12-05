@@ -21,9 +21,9 @@ class SubCategory {
 
   final String name;
   final String action;
-  final String url;
+  final String data;
 
-  SubCategory(this.name, this.action, this.url);
+  SubCategory(this.name, this.action, this.data);
 
   factory SubCategory.fromJson(Map<String, dynamic> mJson) {
     String mAction;
