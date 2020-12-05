@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:maneraa/pages/categories/categories.dart';
+import 'package:maneraa/pages/categories/categories/categories.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/normal_text.dart';
 

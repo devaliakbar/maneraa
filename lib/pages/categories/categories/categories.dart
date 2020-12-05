@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:maneraa/pages/categories/bloc/categories_bloc.dart';
-import 'package:maneraa/pages/categories/widgets/partials/build_app_bar.dart';
-import 'package:maneraa/pages/categories/widgets/views/categories_body.dart';
-import 'package:maneraa/pages/categories/widgets/views/categories_error.dart';
-import 'package:maneraa/pages/categories/widgets/views/categories_loading.dart';
+import 'package:maneraa/pages/categories/categories/bloc/categories_bloc.dart';
+import 'package:maneraa/pages/categories/categories/widgets/partials/build_app_bar.dart';
+import 'package:maneraa/pages/categories/categories/widgets/views/categories_body.dart';
+import 'package:maneraa/pages/categories/categories/widgets/views/categories_error.dart';
+import 'package:maneraa/pages/categories/categories/widgets/views/categories_loading.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/services/settings/status_bar_color.dart';
 

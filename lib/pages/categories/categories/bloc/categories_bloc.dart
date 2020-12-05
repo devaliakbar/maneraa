@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:maneraa/pages/categories/bloc/data/categories_model.dart';
-import 'package:maneraa/pages/categories/bloc/data/categories_repo.dart';
+import 'package:maneraa/pages/categories/categories/bloc/data/categories_model.dart';
+import 'package:maneraa/pages/categories/categories/bloc/data/categories_repo.dart';
 
 part 'categories_event.dart';
 part 'categories_state.dart';

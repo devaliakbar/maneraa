@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:maneraa/pages/categories/bloc/data/categories_model.dart';
+import 'package:maneraa/pages/categories/categories/bloc/data/categories_model.dart';
+import 'package:maneraa/pages/categories/sub_categories/categories.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/image_from_network.dart';
 import 'package:maneraa/widgets/normal_text.dart';
@@ -10,13 +11,17 @@ class CategoriesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: categories.length,
-      itemBuilder: (_, int index) => _buildCategory(index),
+    return Padding(
+      padding: EdgeInsets.only(top: 15),
+      child: ListView.builder(
+        itemCount: categories.length,
+        itemBuilder: (BuildContext context, int index) =>
+            _buildCategory(context, index),
+      ),
     );
   }
 
-  Widget _buildCategory(int index) {
+  Widget _buildCategory(BuildContext context, int index) {
     return Container(
       color: Colors.white,
       padding: EdgeInsets.symmetric(vertical: 7.5),
@@ -28,6 +33,7 @@ class CategoriesBody extends StatelessWidget {
           size: AppTheme.iconSizeXS,
         ),
         leading: ImageFromNetwork(categories[index].image),
+        onTap: () => Navigator.pushNamed(context, SubCategories.myRoute),
       ),
     );
   }

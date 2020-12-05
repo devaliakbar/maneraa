@@ -1,5 +1,5 @@
 import 'package:maneraa/main.dart';
-import 'package:maneraa/pages/categories/bloc/data/categories_model.dart';
+import 'package:maneraa/pages/categories/categories/bloc/data/categories_model.dart';
 import 'package:maneraa/services/network/make_http_request.dart';
 
 class CategoriesRepo {
