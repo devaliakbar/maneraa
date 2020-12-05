@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/categories/categories/bloc/data/categories_model.dart';
 import 'package:maneraa/pages/categories/sub_categories/categories.dart';
@@ -33,7 +35,21 @@ class CategoriesBody extends StatelessWidget {
           size: AppTheme.iconSizeXS,
         ),
         leading: ImageFromNetwork(categories[index].image),
-        onTap: () => Navigator.pushNamed(context, SubCategories.myRoute),
+        onTap: () {
+          String route;
+
+          if (categories[index].action == Category.ACTION_SUB) {
+            route = SubCategories.myRoute;
+          }
+
+          Map<String, String> arguments = {
+            "name": categories[index].name,
+            "url": categories[index].url,
+          };
+
+          Navigator.pushNamed(context, route,
+              arguments: json.encode(arguments));
+        },
       ),
     );
   }

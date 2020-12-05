@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maneraa/pages/categories/sub_categories/bloc/categories_bloc.dart';
@@ -21,13 +23,19 @@ class SubCategories extends StatelessWidget with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<SubCategoriesBloc>(context).add(SubCategoriesLoadEvent());
+    String passedArgs = ModalRoute.of(context).settings.arguments;
+
+    Map passedArgument = json.decode(passedArgs);
+
+    BlocProvider.of<SubCategoriesBloc>(context)
+        .add(SubCategoriesLoadEvent(passedArgument['url']));
 
     WidgetsBinding.instance.addObserver(this);
 
     return Scaffold(
       appBar: BuildSubCategoriesAppBar(
         appBar: AppBar(),
+        title: passedArgument['name'],
       ),
       body: SafeArea(
         child: BlocConsumer<SubCategoriesBloc, SubCategoriesState>(

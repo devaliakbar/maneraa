@@ -23,7 +23,7 @@ class SubCategoriesBloc extends Bloc<SubCategoriesEvent, SubCategoriesState> {
       yield SubCategoriesLoadingState();
       try {
         SubCategoriesModel subCategoriesModel =
-            await _subCategoryRepo.getSubCategories();
+            await _subCategoryRepo.getSubCategories(event.apiUrl);
         yield SubCategoriesLoadedState(subCategoriesModel: subCategoriesModel);
       } catch (e) {
         yield SubCategoriesLoadFailedState(errorMsg: e.toString());

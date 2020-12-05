@@ -7,4 +7,10 @@ abstract class SubCategoriesEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SubCategoriesLoadEvent extends SubCategoriesEvent {}
+class SubCategoriesLoadEvent extends SubCategoriesEvent {
+  final String apiUrl;
+  SubCategoriesLoadEvent(this.apiUrl);
+
+  @override
+  List<Object> get props => [apiUrl];
+}
