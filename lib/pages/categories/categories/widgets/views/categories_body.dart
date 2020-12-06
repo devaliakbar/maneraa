@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/categories/categories/bloc/data/categories_model.dart';
 import 'package:maneraa/pages/categories/sub_categories/categories.dart';
+import 'package:maneraa/pages/products/products.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/image_from_network.dart';
 import 'package:maneraa/widgets/normal_text.dart';
@@ -36,7 +37,7 @@ class CategoriesBody extends StatelessWidget {
         ),
         leading: ImageFromNetwork(categories[index].image),
         onTap: () {
-          String route;
+          String route = Products.myRoute;
 
           if (categories[index].action == Category.ACTION_SUB) {
             route = SubCategories.myRoute;

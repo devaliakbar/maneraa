@@ -64,8 +64,10 @@ class BuildDrawer extends StatelessWidget {
                               Icons.category_outlined,
                               size: AppTheme.iconSizeS,
                             ),
-                            onTap: () => Navigator.pushNamed(
-                                context, Categories.myRoute),
+                            onTap: () {
+                              Navigator.pop(context);
+                              Navigator.pushNamed(context, Categories.myRoute);
+                            },
                           ),
                           ListTile(
                             title: NormalText(

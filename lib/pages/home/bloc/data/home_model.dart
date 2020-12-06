@@ -1,6 +1,10 @@
 import 'package:maneraa/main.dart';
 
 class HomeModel {
+  static const String ACTION_PRODUCT = "prod";
+  static const String ACTION_SUB = "sub";
+  static const String ACTION_SUB_SUB = "sub_sub";
+
   final List<HomeBanner> banners;
   final List<HomeCategory> categories;
   final List<HomeBestSelling> bestSellings;
@@ -61,14 +65,18 @@ class HomeBanner {
 }
 
 class HomeCategory {
+  final String name;
   final String image;
   final String url;
 
-  HomeCategory(this.image, this.url);
+  HomeCategory(this.name, this.image, this.url);
 
   factory HomeCategory.fromJson(Map<String, dynamic> json) {
+    String subCatUrl =
+        MyApp.basicApiUrl + "sub-categories/" + json['id'].toString();
+
     return HomeCategory(
-        MyApp.webAppUrl + "public/" + json['icon'], json['name']);
+        json['name'], MyApp.webAppUrl + "public/" + json['icon'], subCatUrl);
   }
 }
 

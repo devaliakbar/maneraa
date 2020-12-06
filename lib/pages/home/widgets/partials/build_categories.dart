@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:maneraa/pages/categories/sub_categories/categories.dart';
 import 'package:maneraa/pages/home/bloc/data/home_model.dart';
 import 'package:maneraa/widgets/image_from_network.dart';
 
@@ -23,7 +26,14 @@ class BuildCategories extends StatelessWidget {
 
   Widget _buildCategoryItem(BuildContext context, int index) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Map<String, String> arguments = {
+          "name": categories[index].name,
+          "url": categories[index].url,
+        };
+        Navigator.pushNamed(context, SubCategories.myRoute,
+            arguments: json.encode(arguments));
+      },
       child: Container(
           width: 90, child: ImageFromNetwork(categories[index].image)),
     );

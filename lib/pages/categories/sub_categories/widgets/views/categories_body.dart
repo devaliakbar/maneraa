@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:maneraa/pages/categories/sub_categories/bloc/data/categories_model.dart';
 import 'package:maneraa/pages/categories/sub_sub_categories/categories.dart';
+import 'package:maneraa/pages/products/products.dart';
 import 'package:maneraa/services/settings/app_theme.dart';
 import 'package:maneraa/widgets/normal_text.dart';
 
@@ -34,19 +35,18 @@ class SubCategoriesBody extends StatelessWidget {
           size: AppTheme.iconSizeXS,
         ),
         onTap: () {
-          String route;
+          String route = Products.myRoute;
 
           if (subCategories[index].action == SubCategory.ACTION_SUB) {
             route = SubSubCategories.myRoute;
-
-            Map<String, String> arguments = {
-              "name": subCategories[index].name,
-              "data": subCategories[index].data,
-            };
-
-            Navigator.pushNamed(context, SubSubCategories.myRoute,
-                arguments: json.encode(arguments));
           }
+          Map<String, String> arguments = {
+            "name": subCategories[index].name,
+            "data": subCategories[index].data,
+          };
+
+          Navigator.pushNamed(context, route,
+              arguments: json.encode(arguments));
         },
       ),
     );
